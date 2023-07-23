@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-page">
     <div class="title">企业微信消息通知测试</div>
     <div class="form-container">
       <van-form @submit="onSubmit">
@@ -26,11 +26,12 @@
           label="消息内容"
           type="textarea"
           placeholder="请输入消息内容"
-          :rules="[{ required: true, message: '请输入消息内容' }]"
+          :autosize="{ maxHeight: 400, minHeight: 50 }"
+          :rules="[{ required: true, message: '' }]"
         />
 
-        <div style="margin: 16px">
-          <van-button round block type="info" native-type="submit">提交</van-button>
+        <div class="send-btn">
+          <van-button round block type="info" native-type="submit">发送</van-button>
         </div>
       </van-form>
     </div>
@@ -74,30 +75,24 @@ export default class Home extends Vue {
       }
     });
   }
-  // onClickAdd() {
-  //   this.$store.commit("moduleMain/increment");
-  // }
-
-  // onClickSub() {
-  //   this.$store.commit("moduleMain/subtraction");
-  // }
-
-  // login() {
-  //   var options = {
-  //     user: "zd2",
-  //     pwd: "1",
-  //     appKey: "easemob-demo#easeim",
-  //   };
-  // }
 }
 </script>
 
 <style lang='less' scoped>
-.title {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  padding: 30px 0;
+.home-page {
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 30px 0;
+  }
+  .send-btn {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    padding: 16px;
+  }
 }
 </style>
 
